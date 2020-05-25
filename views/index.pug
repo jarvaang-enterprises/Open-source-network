@@ -1,0 +1,78 @@
+extends layout
+
+block content
+  //group meetings are to be emphasized in our social network
+  style.
+    .bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    }
+    @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+    }
+    }
+  // Custom styles for this template
+  link(href='jumbotron.css', rel='stylesheet')
+
+  nav.navbar.navbar-expand-md.navbar-dark.fixed-top.bg-dark
+    a.navbar-brand(href='#') OS social
+    button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarsExampleDefault', aria-controls='navbarsExampleDefault', aria-expanded='false', aria-label='Toggle navigation')
+      span.navbar-toggler-icon
+    #navbarsExampleDefault.collapse.navbar-collapse
+      ul.navbar-nav.mr-auto
+        li.nav-item.active
+          a.nav-link(href='#')
+            | Home 
+            span.sr-only (current)
+        li.nav-item
+          a.nav-link(href='#') Messages
+        li.nav-item
+          a.nav-link(href='#') My Profile
+
+        li.nav-item.dropdown
+          a#dropdown01.nav-link.dropdown-toggle(href='#', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') Settings
+          .dropdown-menu(aria-labelledby='dropdown01')
+            a.dropdown-item(href='#') Action
+            a.dropdown-item(href='#') Logout
+      form.form-inline.my-2.my-lg-0
+        input.form-control.mr-sm-2(type='text', placeholder='Search', aria-label='Search')
+        button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Search
+  main(role='main')
+    // Main jumbotron for a primary marketing message or call to action
+    .jumbotron
+      .container
+        p
+          a.btn.btn-primary.btn-lg(href='/createPost', role='button') New post »
+
+    .container
+      // Example row of columns
+      .row
+        .col-md-4
+          h2 {content.title}
+          p
+            | {content.posts}
+          p
+            a.btn.btn-secondary(href='/status/id', role='button') View details »
+
+      hr
+
+      form(action='/postImage', method="post", enctype="multipart/form-data" )
+        .form-group
+          label(for='text') Upload image:
+          input#email.form-control(type='file', name='image')
+
+          button.btn.btn-primary(type='submit') Post
+
+    // /container
+
+  footer.container
+    p © Advanced Computer Solutions 2020
+  script(src='https://code.jquery.com/jquery-3.5.1.slim.min.js', integrity='sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj', crossorigin='anonymous')
+  script.
+    window.jQuery || document.write('<script src="/docs/4.5/assets/js/vendor/jquery.slim.min.js"><\\/script>')
+  script(src='/docs/4.5/dist/js/bootstrap.bundle.min.js', integrity='sha384-1CmrxMRARb6aLqgBO7yyAxTOQE2AKb9GfXnEo760AUcUmFx3ibVJJAzGytlQcNXd', crossorigin='anonymous')

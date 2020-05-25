@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  each articles in article
+    h1= articles.title
+    //h5 Written by #{author}
+    p= articles.posts
+    hr
+    //if user
+      if user.id ==article.author
+        a.btn.btn-default(href='/articles/edit/'+article._id) Edit 
+        a.btn.btn-danger.delete-article(href='#',data-id=article._id) Delete
+  

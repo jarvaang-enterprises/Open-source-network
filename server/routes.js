@@ -2,7 +2,6 @@ const express = require('express'),
     router = express.Router(),
     home = require('../controllers/home');
 authController = require('../controllers/authController');
-auth = require('./auth'); 
 
 module.exports = (app) => {
     router.get('/', home.index);

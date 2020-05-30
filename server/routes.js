@@ -10,7 +10,7 @@ module.exports = (app) => {
     router.get('/users.json', home.users);
     router.get('/createPost', home.newTweet);
     router.get('/me', home.me);
-   
+    
     // router.post('/register', authController.register);
     router.post('/login', authController.login);
     router.post('/tweet', home.postTweet);

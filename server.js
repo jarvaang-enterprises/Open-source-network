@@ -1,8 +1,7 @@
-const express = require('express');
-const config = require('./server/configure');
+// Lawrence Aang: Moved config to app.js 
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
-const app = require('./app');
+var app = require('./app');
 dotenv.config({ path: './config.env' });
 
 const DB = process.env.DATABASE_LOCAL;

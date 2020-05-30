@@ -11,7 +11,9 @@ const userRouter = require('./routes/userRoutes');
 const helmet = require('helmet');
 const AppError = require('./utilities/appError');
 const globalErrorHandler = require('./controllers/errorController');
+const config = require('./server/configure');
 const app = express();
+config(app); // Lawrence Aang: Include the routes during app configuration in configure.js
 app.use(helmet());
 app.use(
 	cors({

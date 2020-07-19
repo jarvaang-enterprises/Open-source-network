@@ -3,10 +3,10 @@ extends layout
 block content
   .container
     h2 Login
-    form(action='/login', method="post")
+    form(action='/login', method="post", id="msform")
       .form-group
         label(for='email') Name:
-        input#email.form-control(type='text', placeholder='Enter name', name='name')
+        input#email.form-control(type='text', placeholder='Enter name', name='email')
       .form-group
         label(for='pwd') Password:
         input#pwd.form-control(type='password', placeholder='Enter password', name='password')
@@ -15,3 +15,5 @@ block content
           input.form-check-input(type='checkbox', name='remember')
           |  Remember me
       button.btn.btn-primary(type='submit') Submit
+      
+    script(src='js/main.js')

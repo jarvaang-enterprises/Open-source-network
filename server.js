@@ -7,6 +7,7 @@ dotenv.config({ path: './config.env' });
 const DB = process.env.DATABASE_LOCAL;
 app.set('port', process.env.PORT || 3000);
 app.set('Views', `${__dirname}/Views`);
+app.get("views/favicon.ico", (req, res) => res.status(200));
 
 mongoose
 	.connect(DB, { useNewUrlParser: true, useCreateIndex: true, useFindAndModify: false, useUnifiedTopology: true })

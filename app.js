@@ -1,4 +1,5 @@
 const express = require('express');
+const favicon = require('serve-favicon');
 const path = require('path');
 const cors = require('cors');
 const mongoSanitize = require('express-mongo-sanitize');
@@ -26,6 +27,8 @@ app.options('*', cors());
 if (process.env.NODE_ENV === 'development') {
 	app.use(morgan('dev'));
 }
+app.use(favicon(path.join(__dirname, 'views', 'favicon.ico')));
+app.use(express.static('static'));
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));

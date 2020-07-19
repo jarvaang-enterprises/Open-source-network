@@ -32,17 +32,37 @@ const createSendToken = (user, statusCode, res) => {
 		},
 	});
 };
+
 exports.login = catchAsync(async (req, res, next) => {
-	const { email, password } = req.body;
+	// try {
+	// 	const data = req;
+	// 	// console.log(data);
+	// 	console.log(data.body);
+	// 	console.log(data.params);
+	// 	console.log(data.query);
+	// } catch (err) {
+	// 	res.status(400).json({
+	// 		status: 'fail',
+	// 		message: err
+	// 	});
+	// }
+	let { email, password } = req.query;
+	console.log(email)
+	console.log(password)
+	email = new Buffer.from(email, 'base64').toString('ascii')
+	password = new Buffer.from(password, 'base64').toString('ascii')
+	console.log(email)
+	console.log(password)
 	if (!email || !password) return next(new AppError('please provide email and password', 400));
 	const user = await User.findOne({ email }).select('+password');
-	
+
 	if (!user || !(await user.comparePassword(password, user.password))) {
 		return next(new AppError('password or email does not match any records', 401));
 	}
 
 	createSendToken(user, 200, res);
 });
+
 exports.signup = catchAsync(async (req, res, next) => {
 	const newUser = await User.create({
 		name: req.body.name,

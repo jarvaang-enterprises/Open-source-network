@@ -17,7 +17,9 @@ block content
     }
     }
   // Custom styles for this template
-  link(href='jumbotron.css', rel='stylesheet')
+  link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css", integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous")
+  // link(rel="stylesheet", href="https://cdn.tms-dist.lan:433/styles/css/bootstrap4.min.css", integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous")
+  //- link(href='jumbotron.css', rel='stylesheet')  Commented since stylesheet doesn't exit
 
   nav.navbar.navbar-expand-md.navbar-dark.fixed-top.bg-dark
     a.navbar-brand(href='#') OS social
@@ -72,7 +74,9 @@ block content
 
   footer.container
     p © Advanced Computer Solutions 2020
+  //- Added different data for cdn inorder for us to get bootstrap and jquery
   script(src='https://code.jquery.com/jquery-3.5.1.slim.min.js', integrity='sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj', crossorigin='anonymous')
   script.
     window.jQuery || document.write('<script src="/docs/4.5/assets/js/vendor/jquery.slim.min.js"><\\/script>')
-  script(src='/docs/4.5/dist/js/bootstrap.bundle.min.js', integrity='sha384-1CmrxMRARb6aLqgBO7yyAxTOQE2AKb9GfXnEo760AUcUmFx3ibVJJAzGytlQcNXd', crossorigin='anonymous')
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js', integrity='sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1', crossorigin='anonymous')
+  script(src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js", integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous")
